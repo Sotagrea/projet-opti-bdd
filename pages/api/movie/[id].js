@@ -6,12 +6,13 @@ import clientPromise from "../../../lib/mongodb";
 
 /**
 * @swagger
-* /api/movie/id:
+* /api/movie/{id}:
 *   get:
 *       description: Return movie by id
 *       parameters:
-*            - in: header
+*            - in: path
 *              name: id
+*              required: true
 *              schema:
 *                type: string
 *       responses:
@@ -20,7 +21,7 @@ import clientPromise from "../../../lib/mongodb";
 */
 
 export default async function searchId(req, res) {
-    const { id } = req.headers
+    const { id } = req.query;
     const client = await clientPromise;
     const db = client.db("sample_mflix");
     const movie = await db.collection("movies").find({_id: ObjectId(id) }).toArray();

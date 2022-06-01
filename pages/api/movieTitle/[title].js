@@ -4,11 +4,11 @@ import clientPromise from "../../../lib/mongodb";
 
 /**
 * @swagger
-* /api/movieTitle/title:
+* /api/movieTitle/{title}:
 *   get:
 *       description: Return movie by title
 *       parameters:
-*            - in: header
+*            - in: path
 *              name: title
 *              schema:
 *                type: string
@@ -18,7 +18,7 @@ import clientPromise from "../../../lib/mongodb";
 */
 
 export default async function paramsTitle(req, res) {
-    const { title } = req.headers
+    const { title } = req.query;
     const client = await clientPromise;
     
     const db = client.db("sample_mflix");

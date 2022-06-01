@@ -4,11 +4,11 @@ import clientPromise from "../../../lib/mongodb";
 
 /**
 * @swagger
-* /api/movieYear/year:
+* /api/movieYear/{year}:
 *   get:
 *       description: Return movie by year
 *       parameters:
-*            - in: header
+*            - in: path
 *              name: year
 *              schema:
 *                type: integer
@@ -18,7 +18,7 @@ import clientPromise from "../../../lib/mongodb";
 */
 
 export default async function paramsYear(req, res) {
-    const { year } = req.headers
+    const { year } = req.query;
     const client = await clientPromise;
     
     const db = client.db("sample_mflix");

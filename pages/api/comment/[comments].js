@@ -6,7 +6,7 @@ import clientPromise from "../../../lib/mongodb";
 
 /**
 * @swagger
-* /api/comment/comments:
+* /api/comment/{comments}:
 *   post:
 *       description: Comment on a film
 *       parameters:

@@ -6,7 +6,7 @@ import clientPromise from "../../../lib/mongodb";
 
 /**
 * @swagger
-* /api/favorite/favorites:
+* /api/favorite/{favorites}:
 *   post:
 *       description: Adding a favorite to a user
 *       parameters:
