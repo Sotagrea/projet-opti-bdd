@@ -21,11 +21,18 @@ import clientPromise from "../../../lib/mongodb";
 */
 
 export default async function searchId(req, res) {
+
+    // Récupération param du swagger
     const { id } = req.query;
     const client = await clientPromise;
+
+    // On se positionne dans la table des movies
     const db = client.db("sample_mflix");
+
+    // On créé une constante qui va récupérer le film suivant l'id
     const movie = await db.collection("movies").find({_id: ObjectId(id) }).toArray();
 
+    // Affichage de la constante ou non suivant le paramètre dans le swagger
     if(movie){
         res.json({ movie });
     }

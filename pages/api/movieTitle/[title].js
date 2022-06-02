@@ -18,13 +18,19 @@ import clientPromise from "../../../lib/mongodb";
 */
 
 export default async function paramsTitle(req, res) {
+
+    // Récupération du titre rentré dans le swagger
     const { title } = req.query;
+
     const client = await clientPromise;
     
+    // On se place dans la table movies
     const db = client.db("sample_mflix");
     
+    // On créé une constante qui va récupérer le(s) film(s) suivant le titre
     const movies = await db.collection("movies").find({title: title}).toArray();
 
+    // Affichage de la constante ou non suivant le paramètre dans le swagger
     if(movies){
         if (movies == []){
             return res.status(203).json({ message: "Empty Response" });
