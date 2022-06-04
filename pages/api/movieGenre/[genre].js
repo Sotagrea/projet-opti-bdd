@@ -11,6 +11,17 @@ import clientPromise from "../../../lib/mongodb";
 *       parameters:
 *            - in: path
 *              name: genre
+*              required: true
+*              schema:
+*                type: string
+*            - in: path
+*              name: genre2
+*              required: false
+*              schema:
+*                type: string
+*            - in: path
+*              name: genre3
+*              required: false
 *              schema:
 *                type: string
 *       responses:
